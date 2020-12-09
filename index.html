@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>lab3</title>
+    <link rel="icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="styles/style.css">
+    <script defer src="lib/vue.js"></script>
+    <script defer src="scripts/script.js"></script>
+</head>
+<body>
+<div id="app">
+    <div id="user-name" v-show="showSignUp">
+        <div>
+            <h1>Введите имя</h1>
+            <input type="text" v-model.trim="firstPlayer">
+            <button @click="signUp">Вход</button>
+            <div
+                    :style="{visibility: error ? 'visible': 'hidden'}"
+                    style="color: #ff0000;text-align: center"
+            >Введите имя
+            </div>
+        </div>
+    </div>
+    <div class="swimming-place" v-if="!showSignUp&&!showEndGame">
+        <div style="display: flex;align-items: center;justify-content: space-around">
+            <div>
+                Счет:
+                <span
+                        style="border: 1px solid black;border-radius: 50%;padding: 0 5px">{{totalCorn}}
+                </span>
+            </div>
+            <div style="display: flex;align-items: center">
+                Время:
+                <div :class="[time<=10 ? 'warn-time': '']">{{time}}</div>
+            </div>
+        </div>
+        <div v-for="(fish,index) in fishes" :key="fish" class="swimming-line">
+            <div :class="[ index%2 ? 'for-animation1': 'for-animation2']"></div>
+            <div :class="[ index%2 ? 'fish-rev1': 'fish-rev2']">
+                <Fish class="fish"></Fish>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center" v-show="showEndGame">
+        <div>Счет: {{totalCorn}}</div>
+        <div v-for="(rec, index) in records" :key="rec+ Math.random()">{{index + 1}} : {{rec}}</div>
+        <button @click="restartGame">Заного!</button>
+    </div>
+</div>
+</body>
+</html>

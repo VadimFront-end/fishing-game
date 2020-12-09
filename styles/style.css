@@ -1,0 +1,181 @@
+@font-face {
+    font-family: 'Bitter';
+    src: url(../fonts/Bitter-Medium.ttf);
+  }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+    font-size: 22px;
+}
+
+body {
+    font-family: 'Bitter';
+    background: blue;
+}
+
+button,button:focus,input,input:focus {
+    padding: 10px;
+    display: block;
+    margin: auto;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Bitter';
+}
+
+.swimming-place {
+    max-width: 1200px;
+    margin: auto;
+}
+
+#user-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.swimming-line {
+    height: 75px;
+    padding: 10px;
+    display: flex;
+}
+
+.warn-time {
+    border: 1px solid red;
+    color: red;
+    border-radius: 50%;
+    padding: 0 5px;
+    animation: warnTime 1s 10 linear;
+}
+
+@keyframes warnTime {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.for-animation1 {
+    animation: fishSwimming1 7s infinite linear;
+    width: 0;
+}
+
+.for-animation2 {
+    width: 1170px;
+    animation: fishSwimming2 7s infinite linear;
+}
+
+.fish-rev2 {
+    animation: fishRev1 7s infinite;
+}
+
+.fish-rev1 {
+    transform: scaleX(-1);
+    animation: fishRev2 7s infinite;
+}
+
+.fish {
+    background-image: url(../img/fish1.png);
+    background-size: 100% 100%;
+    width: 100px;
+    height: 50px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    animation: fishMove .7s infinite linear;
+}
+
+.fishHide-enter-active, .fishHide-leave-active {
+    transition: opacity 2s;
+}
+
+.fishHide-enter, .fishHide-leave-to {
+    opacity: 0;
+}
+
+@keyframes fishMove {
+    0% {
+        transform: rotate(20deg);
+        margin-top: 10px;
+    }
+    25% {
+        transform: rotate(0);
+        margin-top: 0;
+    }
+    50% {
+        transform: rotate(-30deg);
+        margin-top: 0;
+    }
+    100% {
+        transform: rotate(20deg);
+        margin-top: 10px;
+    }
+}
+
+@keyframes fishSwimming1 {
+    50% {
+        width: 1170px;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes fishSwimming2 {
+    50% {
+        width: 0;
+    }
+    100% {
+        width: 1170px;
+    }
+}
+
+@keyframes fishRev1 {
+    0% {
+        transform: scaleX(1);
+    }
+    49% {
+        transform: scaleX(1);
+    }
+    50% {
+        transform: scaleX(-1);
+    }
+    99% {
+        transform: scaleX(-1);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes fishRev2 {
+    0% {
+        transform: scaleX(-1);
+    }
+    49% {
+        transform: scaleX(-1);
+    }
+    50% {
+        transform: scaleX(1);
+    }
+    99% {
+        transform: scaleX(1);
+    }
+    100% {
+        transform: scaleX(-1);
+    }
+}
